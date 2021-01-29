@@ -1,0 +1,43 @@
+<h2 class="title">Lets play, {{username}}</h2>
+<div class="game">
+    <div class="game__play">
+        <div class="game__mode">
+            <div>
+                <input type="radio" name="mode" id="mode5" value="5" (change)="setMode($event)">
+                <label for="mode5">5 sec</label>
+            </div>
+            <div>
+                <input type="radio" name="mode" id="mode10" value="10" (change)="setMode($event)" checked>
+                <label for="mode10">10 sec</label>
+            </div>
+            <div>
+                <input type="radio" name="mode" id="mode15" value="15" (change)="setMode($event)">
+                <label for="mode15">15 sec</label>
+            </div>
+        </div>
+        <div class="game__buttons">
+            <button
+                [disabled]="!gameFinished"
+                (click)="reset()"
+            >Play again</button>
+            <button
+                [disabled]="gameStarted && !gameFinished"
+                (click)="changeUserName()"
+            >Change Username</button>
+        </div>
+        <button
+            class="game__clicker"
+            [disabled]="!modeSelected || gameFinished"
+            (click)="handleClick()"
+        >
+            {{clicksCount}}
+        </button>
+        <h3 class="game__timer">Timer: {{timer}} seconds</h3>
+    </div>
+    <div class="game__scores">
+        <h3>High-scores</h3>
+        <app-high-score-table
+            [scores]="scoresToDisplay"
+        ></app-high-score-table>
+    </div>
+</div>

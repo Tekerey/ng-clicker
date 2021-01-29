@@ -1,0 +1,18 @@
+<form class="welcome-form">
+    <label for="name" class="welcome-form__label">Hello, what is your name?</label>
+    <input
+        type="text"
+        name="name"
+        class="welcome-form__input"
+        placeholder="Your name here..."
+        required
+        [(ngModel)]="username"
+    />
+    <button #button
+        class="welcome-form__button"
+        (click)="play()"
+        [disabled]="!username"
+    >
+        PLAY
+    </button>
+</form>

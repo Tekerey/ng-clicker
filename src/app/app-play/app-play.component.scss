@@ -1,0 +1,63 @@
+@import '../../shared/variables';
+@import '../app-welcome/app-welcome.component.scss';
+
+%app-play-button {
+    @include border(1px);
+
+    margin: 10px;
+    background-color: $secondary-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:hover:enabled {
+        background-color: $main-color;
+        cursor: pointer;
+    }
+
+    &:focus:enabled {
+        box-shadow: $box-shadow;
+    }
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+
+    &__play {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__scores {
+        margin: 20px;
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    &__buttons button {
+        @extend %app-play-button;
+    }
+
+    &__clicker {
+        @extend %app-play-button;
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+    }
+
+    &__mode {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+.title {
+    text-align: center;
+}

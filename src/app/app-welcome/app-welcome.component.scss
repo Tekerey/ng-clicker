@@ -1,0 +1,47 @@
+@import '../../shared/variables';
+
+@mixin border($border-width: 1px) {
+    padding: 8px;
+    border-radius: 5px;
+    border: $border-width solid;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+
+    &:focus:enabled {
+        box-shadow: $box-shadow;
+    }
+
+    &:hover:enabled {
+        background-color: $main-color;
+        color: white;
+    }
+}
+
+.welcome-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+
+    &__label {
+        text-align: center;
+    }
+
+    &__input {
+        @include border(2px);
+        margin: 10px auto;
+        font-size: 1.2rem;
+
+        &:hover:enabled {
+            background-color: white;
+            color: black;
+        }
+    }
+
+    &__button {
+        @include border(1px);
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 10px 0px;
+        cursor: pointer;
+    }
+}
